@@ -1,10 +1,14 @@
-<div>
-    <div class="result">
-        <div class="result-title">
-            Your personality type is:
-        </div>
-        <div class="result-type">
-            {{ result }}
-        </div>
+<div class="result-container">
+    <div class="result-content">
+        <img [src]="imageUrl" alt="MBTI Character" class="result-image">
+
+        <h2 class="result-text">You are <strong>{{ mbtiType }}</strong></h2>
+
+        <p><strong>{{ mbtiType }}</strong> {{ description }}</p>
+
+        <button class="share-button" (click)="shareResult()">
+            Share
+            <span class="share-icon">📤</span>
+        </button>
     </div>
 </div>

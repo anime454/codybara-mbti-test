@@ -1,21 +1,24 @@
 <app-header></app-header>
 
 @if (!isStarted) {
-  <div class="main-header">
-    The Myers-Briggs Type Indicator (MBTI)
-  </div>
-  <div class="main-content">
-    is a self-report questionnaire that makes pseudoscientific claims to categorize individuals into 16 distinct
-    psychological types or personality types
-  </div>
-  <div class="main-start-test">
-    <button class="main-start-test-button" (click)="startTest()">
-      Do the test
-    </button>
-  </div>
-} @else if (answers.length < questions.length) {
-  <app-question (addAnswer)="addAnswer($event)" [question]="questions[currentQuestion]"/>
+<div class="main-header">
+  The Myers-Briggs Type Indicator (MBTI)
+</div>
+<div class="main-content">
+  is a self-report questionnaire that makes pseudoscientific claims to categorize individuals into 16 distinct
+  psychological types or personality types
+</div>
+<div class="main-start-test">
+  <button class="main-start-test-button" (click)="startTest()">
+    Do the test
+  </button>
+</div>
+} @else if (answers.length
+< questions.length) { <app-question (addAnswer)="addAnswer($event)" [question]="questions[currentQuestion]" />
 } @else {
-  <app-result [result]="this.result"/>
-}
+<app-result [mbtiType]="'ENTJ'"
+  [description]="'are analytical problem-solvers, eager to improve systems and processes with their innovative ideas. They have a talent for seeing possibilities for improvement, whether at work, at home, or in themselves.'"
+  [imageUrl]="'/assets/images/bonfire.png'">
+</app-result>
 
+}
