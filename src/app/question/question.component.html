@@ -1,5 +1,32 @@
 <div class="question">
     <div class="question_text">
-        {{ question.text }}
+        {{question.id}}:{{ question.text }}
     </div>
+
+    <input 
+        type="checkbox"
+        id="answer-a"
+        name="answer-a"
+        [checked]="checkboxIsChecked('A')"
+        (change)="updateAnswer('A')"
+    >
+    <label for="answer-a">A</label>
+
+    <input 
+        type="checkbox"
+        id="answer-n"
+        name="answer-n"
+        [checked]="checkboxIsChecked('N')"
+        (change)="updateAnswer('N')"
+    >
+    <label for="answer-n">N</label>
+
+    <input 
+        type="checkbox"
+        id="answer-d"
+        name="answer-d"
+        [checked]="checkboxIsChecked('D')"
+        (change)="updateAnswer('D')"
+    >
+    <label for="answer-d">D</label>
 </div>
