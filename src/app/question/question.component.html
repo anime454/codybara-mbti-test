@@ -1,32 +1,25 @@
 <div class="question">
-    <div class="question_text">
-        {{question.id}}:{{ question.text }}
+    <div class="question-text">
+        {{ question.text }}
     </div>
-
-    <input 
-        type="checkbox"
-        id="answer-a"
-        name="answer-a"
-        [checked]="checkboxIsChecked('A')"
-        (change)="updateAnswer('A')"
-    >
-    <label for="answer-a">A</label>
-
-    <input 
-        type="checkbox"
-        id="answer-n"
-        name="answer-n"
-        [checked]="checkboxIsChecked('N')"
-        (change)="updateAnswer('N')"
-    >
-    <label for="answer-n">N</label>
-
-    <input 
-        type="checkbox"
-        id="answer-d"
-        name="answer-d"
-        [checked]="checkboxIsChecked('D')"
-        (change)="updateAnswer('D')"
-    >
-    <label for="answer-d">D</label>
+    <div class="question-options">
+        <li>
+            <input type="checkbox" id="answer-a" name="answer-a" [checked]="checkboxIsChecked('A')"
+                (change)="updateAnswer('A')">
+            <label for="answer-a">Agree</label>
+        </li>
+        <li>
+            <input type="checkbox" id="answer-n" name="answer-n" [checked]="checkboxIsChecked('N')"
+                (change)="updateAnswer('N')">
+            <label for="answer-n">Neutral</label>
+        </li>
+        <li>
+            <input type="checkbox" id="answer-d" name="answer-d" [checked]="checkboxIsChecked('D')"
+                (change)="updateAnswer('D')">
+            <label for="answer-d">Disagree</label>
+        </li>
+    </div>
+    <div class="cover-next-button">
+        <button class="next-button"> Next </button>
+    </div>
 </div>

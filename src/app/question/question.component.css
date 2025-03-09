@@ -1,0 +1,44 @@
+.question {
+    margin-top: 4%;
+    padding: 0 10% 0 10%;
+}
+
+.question-text {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+}
+
+.question-options {
+    padding: 0 10% 0 10%;
+    margin-top: 2%;
+    font-size: 1.5em;
+}
+
+.question-options input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+}
+
+.question-options label {
+    padding-left: 4px;
+}
+
+.cover-next-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+.next-button {
+    height: 50px;
+    width: 150px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
