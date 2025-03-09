@@ -4,13 +4,18 @@
   The Myers-Briggs Type Indicator (MBTI)
 </div>
 
-<div class="main-content">
-  is a self-report questionnaire that makes pseudoscientific claims to categorize individuals into 16 distinct
-  psychological types or personality types
-</div>
+@if (!isStarted) {
+  <div class="main-content">
+    is a self-report questionnaire that makes pseudoscientific claims to categorize individuals into 16 distinct
+    psychological types or personality types
+  </div>
 
-<div class="main-start-test">
-  <button class="main-start-test-button">
-    Do the test
-  </button>
-</div>
+  <div class="main-start-test">
+    <button class="main-start-test-button" (click)="startTest()">
+      Do the test
+    </button>
+  </div>
+} @else {
+  <app-question [question]="questions[0]"/>
+}
+
