@@ -42,3 +42,27 @@
     cursor: pointer;
     font-size: 20px;
 }
+
+
+@media screen and (max-width: 600px) {
+    .question-text {
+        padding-top: 12%;
+        font-size: 1.2em;
+    }
+
+    .question-options {
+        padding: 4% 2% 0 2%;
+        font-size: 1em;
+    }
+
+    .cover-next-button {
+        margin-top: 12%;
+    }
+
+    .next-button {
+        height: 40px;
+        width: 120px;
+        font-size: 16px;
+    }
+    
+}
