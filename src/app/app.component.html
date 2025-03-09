@@ -14,7 +14,7 @@
     </button>
   </div>
 } @else if (answers.length < questions.length) {
-  <app-question [question]="questions[0]"/>
+  <app-question (addAnswer)="addAnswer($event)" [question]="questions[currentQuestion]"/>
 } @else {
   <!-- <app-result [answers]="answers"/> -->
 }

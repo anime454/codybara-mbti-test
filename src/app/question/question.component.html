@@ -2,6 +2,7 @@
     <div class="question-text">
         {{ question.text }}
     </div>
+
     <div class="question-options">
         <li>
             <input type="checkbox" id="answer-a" name="answer-a" [checked]="checkboxIsChecked('A')"
@@ -20,6 +21,6 @@
         </li>
     </div>
     <div class="cover-next-button">
-        <button class="next-button"> Next </button>
+        <button class="next-button" (click)="submitAnswer()"> Next </button>
     </div>
 </div>

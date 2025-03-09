@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, input, output, Output } from '@angular/core';
 import { Question } from '../shared/models/question.model';
 import { Answer } from '../shared/models/answer.model';
 
@@ -10,9 +10,9 @@ import { Answer } from '../shared/models/answer.model';
 })
 
 export class QuestionComponent {
-[x: string]: any;
-  @Input({required: true}) question!: Question;
-  @Output() addAnswer = new EventEmitter<Answer>();
+  error:string = '';
+  @Input({ required: true }) question!: Question;
+  addAnswer = output<Answer>();
 
   answer: Answer = {}
 
@@ -31,6 +31,11 @@ export class QuestionComponent {
 
 
   submitAnswer() {
-    this.addAnswer.emit({ [this.question.id]: "A" });
+    if (!this.answer[this.question.id]) {
+      this.error = "Please select an answer before submitting.";
+      return;
+    }
+
+    this.addAnswer.emit(this.answer);
   }
 }

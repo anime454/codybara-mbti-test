@@ -36,17 +36,22 @@ export class AppComponent {
     { id: 19, text: "You feel more comfortable expressing yourself through writing than speaking.", dimension: "E/I", positive: "I" },
     { id: 20, text: "You prefer working alone rather than in a team.", dimension: "E/I", positive: "I" }
   ];
+  currentQuestion = 0;
   answers: Answer[] = [];
 
   startTest() {
     this.isStarted = true;
   }
+  
   addAnswer(answer: Answer) {
     this.answers.push(answer);
-    if (this.answers.length === this.questions.length) {
+    if (this.currentQuestion === this.questions.length-1) {
       this.isFinished = true;
+      return;
     }
+    this.currentQuestion +=1 ;
   }
+
 }
 
 
