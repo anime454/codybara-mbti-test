@@ -1,26 +1,32 @@
-<div class="question">
+<div class="question-container">
     <div class="question-text">
         {{ question.text }}
     </div>
 
     <div class="question-options">
-        <li>
-            <input type="checkbox" id="answer-a" name="answer-a" [checked]="checkboxIsChecked('A')"
+        <label class="option">
+            <input type="checkbox" id="answer-a" name="answer" [checked]="checkboxIsChecked('A')"
                 (change)="updateAnswer('A')">
-            <label for="answer-a">Agree</label>
-        </li>
-        <li>
-            <input type="checkbox" id="answer-n" name="answer-n" [checked]="checkboxIsChecked('N')"
+            <span class="custom-checkbox"></span>
+            Agree
+        </label>
+
+        <label class="option">
+            <input type="checkbox" id="answer-n" name="answer" [checked]="checkboxIsChecked('N')"
                 (change)="updateAnswer('N')">
-            <label for="answer-n">Neutral</label>
-        </li>
-        <li>
-            <input type="checkbox" id="answer-d" name="answer-d" [checked]="checkboxIsChecked('D')"
+            <span class="custom-checkbox"></span>
+            Neutral
+        </label>
+
+        <label class="option">
+            <input type="checkbox" id="answer-d" name="answer" [checked]="checkboxIsChecked('D')"
                 (change)="updateAnswer('D')">
-            <label for="answer-d">Disagree</label>
-        </li>
+            <span class="custom-checkbox"></span>
+            Disagree
+        </label>
     </div>
+
     <div class="cover-next-button">
-        <button class="next-button" (click)="submitAnswer()"> Next </button>
+        <button class="next-button" (click)="submitAnswer()">Next</button>
     </div>
 </div>

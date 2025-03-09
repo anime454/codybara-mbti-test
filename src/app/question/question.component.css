@@ -1,68 +1,97 @@
-.question {
-    margin-top: 4%;
-    padding: 0 10% 0 10%;
-}
-
-.question-text {
+/* Container */
+.question-container {
     display: flex;
-    justify-content: center;
-    font-size: 2em;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Question Text */
+.question-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Options List */
 .question-options {
-    padding: 0 10% 0 10%;
-    margin-top: 2%;
-    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
 }
 
-.question-options input[type="checkbox"] {
+/* Option Labels */
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: background 0.3s;
+}
+
+/* Hover Effect */
+.option:hover {
+    background: #e0e0e0;
+}
+
+/* Hide default checkbox */
+.option input[type="checkbox"] {
+    display: none;
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
     width: 20px;
     height: 20px;
-    border-radius: 0;
-}
-
-.question-options label {
-    padding-left: 4px;
-}
-
-.cover-next-button {
+    border-radius: 4px;
+    border: 2px solid #555;
     display: flex;
     justify-content: center;
-    margin-top: 4%;
+    align-items: center;
+    transition: background 0.3s, border 0.3s;
 }
 
-.next-button {
-    height: 50px;
-    width: 150px;
-    background-color: #000;
+/* Checkbox Checked */
+.option input[type="checkbox"]:checked+.custom-checkbox {
+    background-color: black;
+    border-color: black;
+    position: relative;
+}
+
+/* Checkmark */
+.option input[type="checkbox"]:checked+.custom-checkbox::after {
+    content: "✔";
+    font-size: 14px;
     color: white;
-    border: none;
-    border-radius: 40px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 20px;
 }
 
+/* Next Button */
+.next-button {
+    margin-top: 20px;
+    background: black;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-@media screen and (max-width: 600px) {
-    .question-text {
-        padding-top: 12%;
-        font-size: 1.2em;
-    }
-
-    .question-options {
-        padding: 4% 2% 0 2%;
-        font-size: 1em;
-    }
-
-    .cover-next-button {
-        margin-top: 12%;
-    }
-
-    .next-button {
-        height: 40px;
-        width: 120px;
-        font-size: 16px;
-    }
-    
+.next-button:hover {
+    background: #333;
 }
