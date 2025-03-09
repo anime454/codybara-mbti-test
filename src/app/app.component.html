@@ -16,8 +16,8 @@
 } @else if (answers.length
 < questions.length) { <app-question (addAnswer)="addAnswer($event)" [question]="questions[currentQuestion]" />
 } @else {
-<app-result [mbtiType]="'ENTJ'"
-  [description]="'are analytical problem-solvers, eager to improve systems and processes with their innovative ideas. They have a talent for seeing possibilities for improvement, whether at work, at home, or in themselves.'"
+<app-result [mbtiType]="result"
+  [description]="mbtiDescriptions[result]"
   [imageUrl]="'/assets/images/bonfire.png'">
 </app-result>
 

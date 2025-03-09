@@ -37,6 +37,27 @@ export class AppComponent {
     { id: 19, text: "You feel more comfortable expressing yourself through writing than speaking.", dimension: "E/I", positive: "I" },
     { id: 20, text: "You prefer working alone rather than in a team.", dimension: "E/I", positive: "I" }
   ];
+  mbtiDescriptions: Record<string, string> = {
+    "ENTJ": "ENTJs are analytical problem-solvers, eager to improve systems and processes with their innovative ideas. They have a talent for seeing possibilities for improvement, whether at work, at home, or in themselves.",
+    "ENTP": "ENTPs are energetic and curious, always looking for new challenges and opportunities. They thrive on debate, enjoy intellectual discussions, and are excellent at thinking on their feet.",
+    "ENFJ": "ENFJs are charismatic and inspiring leaders, motivated by their deep care for others. They excel in bringing people together and guiding them toward a shared vision.",
+    "ENFP": "ENFPs are enthusiastic, creative, and free-spirited. They are deeply passionate about their beliefs and have an infectious energy that inspires those around them.",
+    
+    "ESTJ": "ESTJs are strong-willed, organized, and dependable. They thrive in leadership roles and believe in structure, efficiency, and upholding traditions.",
+    "ESTP": "ESTPs are bold, energetic, and action-oriented. They love taking risks, enjoy excitement, and prefer to learn by doing rather than theorizing.",
+    "ESFJ": "ESFJs are warm, outgoing, and deeply loyal. They value relationships and traditions and are happiest when they can help and support others.",
+    "ESFP": "ESFPs are lively, spontaneous, and love to entertain. They are highly social and thrive in environments where they can express themselves and enjoy the moment.",
+    
+    "INTJ": "INTJs are strategic thinkers, known for their independence and ability to turn visions into reality. They are highly focused and excel at long-term planning.",
+    "INTP": "INTPs are logical and curious, always seeking to understand complex systems and concepts. They are deep thinkers who thrive on knowledge and discovery.",
+    "INFJ": "INFJs are insightful, compassionate, and driven by a strong sense of purpose. They seek to create meaningful change in the world through their ideas and actions.",
+    "INFP": "INFPs are deeply introspective, idealistic, and value authenticity. They are passionate about personal growth and helping others reach their potential.",
+    
+    "ISTJ": "ISTJs are responsible, practical, and highly detail-oriented. They believe in tradition, structure, and following through on commitments.",
+    "ISTP": "ISTPs are hands-on problem solvers, known for their practicality and adaptability. They enjoy experimenting with how things work and are naturally resourceful.",
+    "ISFJ": "ISFJs are nurturing, loyal, and dedicated to supporting those around them. They value harmony and work hard to maintain stability in their relationships.",
+    "ISFP": "ISFPs are gentle, creative, and deeply attuned to their surroundings. They appreciate beauty, enjoy self-expression, and prefer a flexible lifestyle."
+  };
   currentQuestion = 0;
   answers: Answer[] = [];
 
