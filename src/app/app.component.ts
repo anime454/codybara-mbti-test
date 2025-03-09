@@ -3,10 +3,11 @@ import { HeaderComponent } from "./header/header.component";
 import { QuestionComponent } from "./question/question.component";
 import { Question } from './shared/models/question.model';
 import { Answer } from './shared/models/answer.model';
+import { ResultComponent } from "./result/result.component";
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, QuestionComponent],
+  imports: [HeaderComponent, QuestionComponent, ResultComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -39,17 +40,62 @@ export class AppComponent {
   currentQuestion = 0;
   answers: Answer[] = [];
 
+  result: string = "";
+
   startTest() {
     this.isStarted = true;
   }
-  
+
   addAnswer(answer: Answer) {
     this.answers.push(answer);
-    if (this.currentQuestion === this.questions.length-1) {
+    if (this.currentQuestion === this.questions.length - 1) {
+      this.result = this.getResult(answer);
       this.isFinished = true;
       return;
     }
-    this.currentQuestion +=1 ;
+    this.currentQuestion += 1;
+  }
+
+  getResult(submitData: Answer): string {
+    interface MBTIScores {
+      E: number;
+      I: number;
+      S: number;
+      N: number;
+      T: number;
+      F: number;
+      J: number;
+      P: number;
+    }
+
+    let scores: MBTIScores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+
+    const getOppositeType = (type: keyof MBTIScores): keyof MBTIScores => {
+      const opposites: Record<keyof MBTIScores, keyof MBTIScores> = {
+        E: "I", I: "E",
+        S: "N", N: "S",
+        T: "F", F: "T",
+        J: "P", P: "J"
+      };
+      return opposites[type];
+    };
+
+    for (const question of this.questions) {
+      const answer = submitData[question.id];
+      if (answer === "A") {
+        scores[question.positive]++;
+      } else if (answer === "D") {
+        scores[getOppositeType(question.positive)]++;
+      }
+    }
+
+    const mbtiType =
+      (scores.E >= scores.I ? "E" : "I") +
+      (scores.S >= scores.N ? "S" : "N") +
+      (scores.T >= scores.F ? "T" : "F") +
+      (scores.J >= scores.P ? "J" : "P");
+
+    return mbtiType;
   }
 
 }
