@@ -1,32 +1,52 @@
-<div class="question-container">
-    <div class="question-text">
+<div class="p-8 bg-black text-white shadow-xl rounded-lg max-w-xl mx-auto mt-8">
+    <div class="text-xl font-bold mb-6 text-center">
         {{ question.text }}
     </div>
 
-    <div class="question-options">
-        <label class="option">
+    <div class="space-y-4">
+        <label class="flex items-center space-x-4 cursor-pointer">
             <input type="checkbox" id="answer-a" name="answer" [checked]="checkboxIsChecked('A')"
-                (change)="updateAnswer('A')">
-            <span class="custom-checkbox"></span>
-            Agree
+                (change)="updateAnswer('A')" class="hidden">
+            <span
+                class="w-7 h-7 border-2 border-gray-300 rounded-md flex items-center justify-center transition-all duration-300"
+                [class.bg-gray-300]="checkboxIsChecked('A')">
+                @if(checkboxIsChecked('A')){
+                    <span class="text-black font-bold text-lg">✔</span>
+                }
+            </span>
+            <span class="text-lg">Agree</span>
         </label>
 
-        <label class="option">
+        <label class="flex items-center space-x-4 cursor-pointer">
             <input type="checkbox" id="answer-n" name="answer" [checked]="checkboxIsChecked('N')"
-                (change)="updateAnswer('N')">
-            <span class="custom-checkbox"></span>
-            Neutral
+                (change)="updateAnswer('N')" class="hidden">
+            <span
+                class="w-7 h-7 border-2 border-gray-300 rounded-md flex items-center justify-center transition-all duration-300"
+                [class.bg-gray-500]="checkboxIsChecked('N')">
+                @if(checkboxIsChecked('N')) {
+                    <span class="text-white font-bold text-lg">✔</span>
+                }
+            </span>
+            <span class="text-lg">Neutral</span>
         </label>
 
-        <label class="option">
+        <label class="flex items-center space-x-4 cursor-pointer">
             <input type="checkbox" id="answer-d" name="answer" [checked]="checkboxIsChecked('D')"
-                (change)="updateAnswer('D')">
-            <span class="custom-checkbox"></span>
-            Disagree
+                (change)="updateAnswer('D')" class="hidden">
+            <span
+                class="w-7 h-7 border-2 border-gray-300 rounded-md flex items-center justify-center transition-all duration-300"
+                [class.bg-gray-700]="checkboxIsChecked('D')">
+                @if(checkboxIsChecked('D')) {
+                    <span class="text-white font-bold text-lg">✔</span>
+                }
+            </span>
+            <span class="text-lg">Disagree</span>
         </label>
     </div>
 
-    <div class="cover-next-button">
-        <button class="next-button" (click)="submitAnswer()">Next</button>
+    <div class="mt-8">
+        <button
+            class="w-full bg-white text-black text-lg py-3 rounded-lg shadow-md hover:bg-gray-300 transition-all duration-300"
+            (click)="submitAnswer()">Next</button>
     </div>
 </div>
