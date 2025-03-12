@@ -4,15 +4,14 @@
     </div>
 
     <div class="space-y-1">
-        
         <label class="flex items-center space-x-4 cursor-pointer hover:bg-black hover:text-white p-2 rounded-lg">
             <input type="checkbox" id="answer-a" name="answer" [checked]="checkboxIsChecked('A')"
-                (change)="updateAnswer('A')" class="hidden">
+                (change)="updateAnswer('A'); clearError()" class="hidden">
             <span
                 class="w-7 h-7 border-2 border-gray-300 rounded-md flex items-center justify-center transition-all duration-300 "
                 [class.bg-gray-300]="checkboxIsChecked('A')">
                 @if(checkboxIsChecked('A')){
-                    <span class="text-black font-bold text-lg">✔</span>
+                <span class="text-black font-bold text-lg">✔</span>
                 }
             </span>
             <span class="text-lg">Agree</span>
@@ -20,12 +19,12 @@
 
         <label class="flex items-center space-x-4 cursor-pointer hover:bg-black hover:text-white p-2 rounded-lg">
             <input type="checkbox" id="answer-n" name="answer" [checked]="checkboxIsChecked('N')"
-                (change)="updateAnswer('N')" class="hidden">
+                (change)="updateAnswer('N'); clearError()" class="hidden">
             <span
                 class="w-7 h-7 border-2 border-gray-300 rounded-md flex items-center justify-center transition-all duration-300"
                 [class.bg-gray-500]="checkboxIsChecked('N')">
                 @if(checkboxIsChecked('N')) {
-                    <span class="text-white font-bold text-lg">✔</span>
+                <span class="text-white font-bold text-lg">✔</span>
                 }
             </span>
             <span class="text-lg">Neutral</span>
@@ -33,21 +32,28 @@
 
         <label class="flex items-center space-x-4 cursor-pointer hover:bg-black hover:text-white p-2 rounded-lg">
             <input type="checkbox" id="answer-d" name="answer" [checked]="checkboxIsChecked('D')"
-                (change)="updateAnswer('D')" class="hidden">
+                (change)="updateAnswer('D'); clearError()" class="hidden">
             <span
                 class="w-7 h-7 border-2 border-gray-300 rounded-md flex items-center justify-center transition-all duration-300"
                 [class.bg-gray-700]="checkboxIsChecked('D')">
                 @if(checkboxIsChecked('D')) {
-                    <span class="text-white font-bold text-lg">✔</span>
+                <span class="text-white font-bold text-lg">✔</span>
                 }
             </span>
             <span class="text-lg">Disagree</span>
         </label>
     </div>
 
+    <!-- Error message -->
+    @if(errorMessage) {
+    <div class="text-red-500 text-sm mt-4 text-center">
+        {{ errorMessage }}
+    </div>
+    }
+
     <div class="mt-8">
         <button
             class="w-full bg-white text-black text-lg py-3 rounded-lg shadow-md hover:bg-black hover:text-white hover:cursor-pointer transition-all duration-300"
-            (click)="submitAnswer()">Next</button>
+            (click)="validateAndSubmit()">Next</button>
     </div>
 </div>
