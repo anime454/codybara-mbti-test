@@ -10,7 +10,7 @@ import { Answer } from '../shared/models/answer.model';
 })
 
 export class QuestionComponent {
-  error:string = '';
+  error: string = '';
   @Input({ required: true }) question!: Question;
   addAnswer = output<Answer>();
 
@@ -37,5 +37,20 @@ export class QuestionComponent {
     }
 
     this.addAnswer.emit(this.answer);
+  }
+
+  errorMessage: string = '';
+
+  validateAndSubmit() {
+    if (!this.checkboxIsChecked('A') && !this.checkboxIsChecked('N') && !this.checkboxIsChecked('D')) {
+      this.errorMessage = 'Please select an answer before proceeding.';
+    } else {
+      this.errorMessage = '';
+      this.submitAnswer();
+    }
+  }
+
+  clearError() {
+    this.errorMessage = '';
   }
 }
